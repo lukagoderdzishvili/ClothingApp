@@ -11,6 +11,26 @@
         [(ngModel)]="product.rating"
         [readonly]="true"
         iconCancelClass="hidden"
-
     ></p-rating>
+
+    <div class="row gap-05">
+        <button
+            type="button"
+            pButton
+            icon="pi pi-pencil"
+            label="Edit"
+            (click)="editProduct()"
+        ></button>
+        <button
+            type="button"
+            pButton
+            icon="pi pi-trash"
+            label="Delete"
+            (click)="confrimDelete()"
+            class="p-button-danger"
+            #deleteButton
+        ></button>
+    </div>
 </div>
+
+<p-confirmPopup></p-confirmPopup>
