@@ -41,4 +41,38 @@ export class HomeComponent {
   onProductOutput(product: Product){
     console.log(product, 'Output')
   }
+
+  editProduct(product: Product, id: number){
+    this.productsService.editProduct(`http://localhost:3000/clothes/${id}`, product).subscribe(
+      {
+        next: (data) => {
+          console.log(data);
+          this.fetchProducts(0, this.rows);
+        },
+        error: (err) => console.log(err)
+      }
+    );
+  }
+  deleteProduct(id: number){
+    this.productsService.deleteProduct(`http://localhost:3000/clothes/${id}`).subscribe(
+      {
+        next: (data) => {
+          console.log(data);
+          this.fetchProducts(0, this.rows);
+        },
+        error: (err) => console.log(err)
+      }
+    );
+  }
+  addProduct(product: Product, id: number){
+    this.productsService.addProduct(`http://localhost:3000/clothes/${id}`, product).subscribe(
+      {
+        next: (data) => {
+          console.log(data);
+          this.fetchProducts(0, this.rows);
+        },
+        error: (err) => console.log(err)
+      }
+    );
+  }
 }
