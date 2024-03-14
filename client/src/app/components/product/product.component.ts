@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { ConfirmationService } from 'primeng/api';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { PricePipe } from '../../pipes/price.pipe';
+import { TruncateNamePipe } from '../../pipes/truncate-name.pipe';
 
 @Component({
   selector: 'app-product',
@@ -13,7 +15,9 @@ import { ConfirmPopupModule } from 'primeng/confirmpopup';
     RatingModule,
     FormsModule,
     ButtonModule,
-    ConfirmPopupModule
+    ConfirmPopupModule,
+    PricePipe,
+    TruncateNamePipe
   ],
   providers: [ConfirmationService],
   templateUrl: './product.component.html',
@@ -26,7 +30,7 @@ export class ProductComponent {
   @ViewChild('deleteButton') deleteButton: any;
 
   constructor(private confirmationService: ConfirmationService){}
-
+  
   editProduct(){
     this.edit.emit(this.product);    
   }
